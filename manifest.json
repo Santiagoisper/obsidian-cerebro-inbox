@@ -1,0 +1,9 @@
+{
+  "id": "cerebro-inbox",
+  "name": "Cerebro Inbox",
+  "version": "0.1.0",
+  "minAppVersion": "1.5.0",
+  "description": "Imports curated Markdown notes from a private VPS inbox.",
+  "author": "Santiago Isbert",
+  "isDesktopOnly": false
+}
