@@ -95,7 +95,10 @@ module.exports = class CerebroInboxPlugin extends Plugin {
           skipped++;
           continue;
         }
-        const header = "---\nsource: VPS\nsource_id: " + String(item.id || "") + "\nsource_sha256: " + String(item.sha256 || "") + "\nimported_at: " + new Date().toISOString() + "\n---\n\n";
+        const isExcalidraw = /\.excalidraw\.md$/i.test(filename);
+        const header = isExcalidraw
+          ? ""
+          : "---\nsource: VPS\nsource_id: " + String(item.id || "") + "\nsource_sha256: " + String(item.sha256 || "") + "\nimported_at: " + new Date().toISOString() + "\n---\n\n";
         await this.app.vault.create(target, header + item.content);
         imported++;
       }
